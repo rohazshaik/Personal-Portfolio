@@ -283,6 +283,29 @@ export const projects: Project[] = [
       "MediaPipe-powered gesture recognition",
       "Zero latency keyboard input mapping",
     ],
+    diagram: `flowchart TB
+    subgraph Input["Input"]
+        Webcam[Webcam Feed]
+    end
+    
+    subgraph Detection["Pose Detection"]
+        MediaPipe[MediaPipe Pose]
+        Landmarks[Body Landmarks]
+    end
+    
+    subgraph Processing["Gesture Processing"]
+        GestureLogic[Gesture Logic]
+        Cooldown[Cooldown Manager]
+    end
+    
+    subgraph Output["Output"]
+        Keyboard[Keyboard Simulation]
+        Game[Punchers Game]
+    end
+    
+    Webcam --> MediaPipe --> Landmarks
+    Landmarks --> GestureLogic --> Cooldown
+    Cooldown --> Keyboard --> Game`,
   },
   {
     slug: "virtual-ecommerce",
@@ -312,7 +335,7 @@ export const projects: Project[] = [
       { name: "Stripe", category: "Payments" },
     ],
     githubUrl: "https://github.com/rohazshaik/virtual_e-commerce_website",
-    liveUrl: "https://www.runawayofficial.shop/",
+    liveUrl: "https://virtual-e-commerce-website.vercel.app/",
     features: [
       "Intuitive product browsing and search",
       "Secure user authentication with role-based access",
