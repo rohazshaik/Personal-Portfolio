@@ -19,11 +19,124 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "ai-powered-code-translator",
+    title: "AI-Powered Smart Code Translator",
+    shortDescription: "Full-stack code translator with Gemini AI, Monaco Editor, and 4 AI features for seamless multi-language development.",
+    description: "A comprehensive full-stack application that leverages Google Gemini AI to help developers work across programming languages. Translates code between C, C++, C#, Java, and Python with intelligent analysis. Features include real-time code translation, complexity analysis with Big-O notation, AI-powered optimization suggestions, and beginner-friendly code explanations. Built with React/Vite frontend, Node.js/Express backend, MongoDB for persistence, and Monaco Editor for professional code editing experience.",
+    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/07.png",
+    docsUrl: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/AI_Code_Translator_Documentation.docx",
+    videoUrl: "",
+    gallery: [
+      "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/01.png",
+      "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/02.png",
+      "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/03.png",
+      "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/04.png",
+      "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/05.png",
+      "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/06.png",
+      "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/CODE%20TRANS/08.png",
+    ],
+    tags: ["React", "Node.js", "Gemini AI", "Monaco Editor", "TypeScript"],
+    techStack: [
+      { name: "React 18", category: "Frontend" },
+      { name: "Vite", category: "Frontend" },
+      { name: "TypeScript", category: "Frontend" },
+      { name: "Tailwind CSS", category: "Frontend" },
+      { name: "Monaco Editor", category: "Frontend" },
+      { name: "Node.js", category: "Backend" },
+      { name: "Express.js", category: "Backend" },
+      { name: "MongoDB", category: "Database" },
+      { name: "Google Gemini AI", category: "AI/ML" },
+      { name: "JWT", category: "Security" },
+      { name: "Bcrypt", category: "Security" },
+    ],
+    githubUrl: "https://github.com/rohazshaik/AI-Powered-Smart-Code-Translator",
+    features: [
+      "Code Translation: Translate code between C, C++, C#, Java, and Python",
+      "Complexity Analysis: Analyze time and space complexity with Big-O notation",
+      "Code Optimization: Get AI-powered suggestions to improve code performance",
+      "Code Explanation: Understand code in beginner-friendly plain English",
+      "Email/Password Authentication: Secure user registration and login",
+      "Google OAuth SSO: One-click sign-in with Google accounts",
+      "Operation History: Automatically save and browse past operations",
+      "Monaco Code Editor: Professional syntax highlighting and editing",
+      "Pagination & Search: Browse history with pagination controls",
+    ],
+    highlights: [
+      "4 AI-powered code operations (translate, analyze, optimize, explain)",
+      "Google Gemini integration for intelligent code processing",
+      "Full MERN stack with JWT-based authentication",
+      "Professional Monaco Editor with syntax highlighting",
+      "Persistent operation history with MongoDB",
+    ],
+    diagram: `flowchart TB
+    subgraph Client["Frontend (React + Vite)"]
+        UI["User Interface"]
+        Editor["Monaco Editor"]
+        Auth["Auth Context"]
+    end
+    
+    subgraph Authentication["Auth Layer"]
+        Register["Register"]
+        Login["Email/Password Login"]
+        GoogleSSO["Google OAuth"]
+        JWT["JWT Token"]
+    end
+    
+    subgraph Server["Backend (Node.js + Express)"]
+        API["REST API Routes"]
+        AuthMW["Auth Middleware"]
+        CodeController["Code Controller"]
+        HistoryController["History Controller"]
+    end
+    
+    subgraph AIEngine["AI Engine"]
+        Gemini["Google Gemini AI"]
+        Prompts["Prompt Templates"]
+        ResponseParser["Response Parser"]
+    end
+    
+    subgraph Operations["Code Operations"]
+        Translate["Translate"]
+        Analyze["Analyze Complexity"]
+        Optimize["Optimize Code"]
+        Explain["Explain Code"]
+    end
+    
+    subgraph Database["Data Persistence"]
+        Users[("Users")]
+        History[("Operation History")]
+    end
+    
+    UI --> Editor
+    Editor --> API
+    Auth --> Register
+    Auth --> Login
+    Auth --> GoogleSSO
+    JWT --> AuthMW
+    API --> AuthMW
+    AuthMW --> CodeController
+    AuthMW --> HistoryController
+    CodeController --> Prompts
+    Prompts --> Gemini
+    Gemini --> ResponseParser
+    ResponseParser --> Translate
+    ResponseParser --> Analyze
+    ResponseParser --> Optimize
+    ResponseParser --> Explain
+    CodeController --> Users
+    CodeController --> History
+    HistoryController --> History
+    Translate --> UI
+    Analyze --> UI
+    Optimize --> UI
+    Explain --> UI`,
+  },
+  {
     slug: "ai-powered-query-generator",
     title: "AI-Powered Query Generator",
     shortDescription: "LangChain-integrated service translating user inputs to SQL with 85% precision.",
     description: "LangChain-integrated Python service translating user inputs to SQL statements. Engineered efficient APIs slashing query creation time by 75% for 50+ end-users. Achieved 85% precision across PostgreSQL, MySQL, and Oracle via adaptive frameworks. Scales to handle 500+ daily calls with comprehensive validation protocols.",
-    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Query/ChatGPT%20Image%20Jan%2019,%202026,%2001_10_08%20AM.png",
+    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Query/screencapture-localhost-3000-2026-01-19-00_58_19.png",
     videoUrl: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Query/lv_0_20260115203835.mp4",
     gallery: [
       "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Query/screencapture-localhost-3000-2026-01-19-00_58_19.png",
@@ -98,7 +211,7 @@ export const projects: Project[] = [
     title: "AI Document Search System",
     shortDescription: "RAG chatbot delivering 90% accurate responses from 1,000+ page datasets.",
     description: "FastAPI and Python-based backend delivering 90% accurate responses from 1,000+ page datasets. Features vector-based search using FAISS embeddings for advanced query processing, API interfaces supporting 100+ simultaneous requests with sub-3-second latency, MongoDB for user sessions and optimized vector storage.",
-    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/DOC%20RAG/ChatGPT%20Image%20Jan%2018,%202026,%2010_56_51%20PM.png",
+    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/DOC%20RAG/screencapture-localhost-3000-2026-01-18-22_10_35.png",
     videoUrl: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/DOC%20RAG/lv_0_20260119002031.mp4",
     gallery: [
       "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/DOC%20RAG/screencapture-localhost-3000-2026-01-18-22_10_35.png",
@@ -175,7 +288,7 @@ export const projects: Project[] = [
     title: "DocSpot - Appointment Booking System",
     shortDescription: "MERN booking system with JWT security and 98% booking conflict elimination.",
     description: "Node.js and Express.js server with JWT security and MongoDB connectivity. Role-based access controls using 256-bit encryption for three user types. Scheduling endpoints producing 5,000+ secure tokens integrated with QR codes. Refined query performance to eliminate 98% of booking conflicts for 15+ providers.",
-    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/ChatGPT%20Image%20Jan%2019,%202026,%2001_27_41%20AM.png",
+    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Screenshot%20Doc%20(9).png",
     videoUrl: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/DOCSPOT%20-%20DEMO%20(1).mp4",
     docsUrl: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/DOCSPOT%20-%20LTVIP2025TMID50339%20.docx",
     gallery: [
@@ -312,7 +425,7 @@ export const projects: Project[] = [
     title: "Virtual E-Commerce Website",
     shortDescription: "Modern online shopping platform with 3D virtual showroom and real-time cart.",
     description: "A modern, full-featured online shopping platform built to deliver a seamless and immersive experience. It bridges the gap between luxury fashion and affordability, providing advanced features such as a 3D virtual showroom, real-time cart management, secure payments, and an intuitive admin dashboard.",
-    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Ecommerce/ChatGPT%20Image%20Jan%2019,%202026,%2001_32_37%20AM.png",
+    image: "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Ecommerce/Screenshot%202026-01-19%20012720%20(1).png",
     gallery: [
       "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Ecommerce/Screenshot%202026-01-19%20012720%20(1).png",
       "https://dgjdcfqxojogjianbwzc.supabase.co/storage/v1/object/public/DOCSPOT/Ecommerce/Screenshot%202026-01-19%20012720.png",

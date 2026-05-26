@@ -24,15 +24,10 @@ import {
   "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import FluidNavigation from "@/components/FluidNavigation";
 import dynamic from "next/dynamic";
 import Shuffle from '@/components/Shuffle';
 import { projects } from "@/data/projects";
-
-const InfiniteGallery = dynamic(() => import("@/components/InfiniteGallery"), {
-  ssr: false
-});
 
 // --- Components ---
 
@@ -336,9 +331,8 @@ export default function PortfolioPage() {
                   </h1>
                 </div>
                 <p className="text-lg lg:text-xl text-zinc-500 max-w-xl leading-relaxed font-medium">
-                  Final-year B.Tech CSE (IoT) student specializing in MERN stack development and problem-solving. Proven experience
-                  building secure, scalable web applications with React, Node.js, and MongoDB. Experienced in Git/GitHub collaboration
-                  and Agile workflows.
+                  Full-stack developer with 2 internships and 5+ production projects including AI-powered tools, REST APIs, and JWTsecured applications. Skilled in React.js, Node.js, Python, and MongoDB. Strong problem-solving and analytical skills with
+Agile team experience. Open to immediate joining.
                 </p>
                 <div className="flex items-center gap-2 text-zinc-600">
                   <Globe className="w-4 h-4" />
@@ -368,10 +362,10 @@ export default function PortfolioPage() {
           <SectionReveal>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: "Major Projects (MERN & IoT)", value: "3+" },
-                { label: "Internships Completed", value: "2" },
-                { label: "B.Tech CGPA", value: "7.49" },
-                { label: "Expected Graduation", value: "2026" }].
+                { label: "Major Projects (MERN & IoT)", value: "5+" },
+                { label: "Internships Completed", value: "3" },
+                { label: "B.Tech CGPA", value: "7.64" },
+                { label: "Passed out year", value: "2026" }].
                 map((stat, i) =>
                   <div key={i} className="p-8 rounded-[2rem] bg-zinc-900/20 flex flex-col gap-2 hover:bg-zinc-900/40 transition-colors">
                     <span className="text-4xl font-bold text-white tracking-tighter">{stat.value}</span>
@@ -447,50 +441,31 @@ export default function PortfolioPage() {
             </section>
           </SectionReveal>
 
-          {/* Projects Section with Infinite Gallery */}
+          {/* Featured Projects Section */}
           <SectionReveal>
             <section id="projects" className="space-y-10">
-              <div className="space-y-4">
-                <h2 className="text-4xl font-bold text-white tracking-tighter">Projects</h2>
-                <p className="text-zinc-500 max-w-xl text-lg">
-                  Selected projects showcasing MERN stack skills, ML integration, and IoT-driven experiences.
-                </p>
+              <div className="py-10 flex justify-center w-full items-center">
+                <Shuffle
+                  text="FEATURED PROJECTS"
+                  shuffleDirection="right"
+                  duration={0.35}
+                  animationMode="evenodd"
+                  shuffleTimes={1}
+                  ease="power3.out"
+                  stagger={0.03}
+                  threshold={0.1}
+                  triggerOnce={true}
+                  triggerOnHover={true}
+                  respectReducedMotion={true}
+                  scroller="#main-content"
+                />
               </div>
 
-              {/* Infinite 3D Gallery - Toggle with Gallery icon */}
-              {showGallery && (
-                <>
-                  <div className="py-10 flex justify-center w-full items-center">
-                    <Shuffle
-                      text="FEATURED PROJECTS"
-                      shuffleDirection="right"
-                      duration={0.35}
-                      animationMode="evenodd"
-                      shuffleTimes={1}
-                      ease="power3.out"
-                      stagger={0.03}
-                      threshold={0.1}
-                      triggerOnce={true}
-                      triggerOnHover={true}
-                      respectReducedMotion={true}
-                      scroller="#main-content"
-                    />
-                  </div>
-
-                  <div className="rounded-[2.5rem] border border-zinc-800 bg-zinc-900/30 overflow-hidden">
-                    <InfiniteGallery
-                      className="h-[600px] md:h-[700px] w-full"
-                      images={["/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg", "/5.jpeg", "/6.jpeg", "/7.jpeg", "/8.jpeg", "/9.jpeg", "/10.jpeg", "/11.jpeg"]}
-                    />
-                  </div>
-                </>
-              )}
-
-              {/* Project cards continue below */}
+              {/* Project cards */}
               <div className="grid grid-cols-1 gap-10">
                 {projects
                   .filter((project) =>
-                    ["ai-pdf-chatbot", "ai-powered-query-generator", "docspot"].includes(project.slug)
+                    ["ai-pdf-chatbot", "ai-powered-query-generator", "ai-powered-code-translator"].includes(project.slug)
                   )
                   .map((project) => (
                     <a
@@ -565,12 +540,11 @@ export default function PortfolioPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
-                  { title: "Languages", desc: "JavaScript, Python, SQL, HTML, CSS" },
-                  { title: "Frameworks", desc: "React.js, Node.js, FastAPI, LangChain" },
+                  { title: "Languages", desc: "Python, SQL, HTML, CSS" },
+                  { title: "Frameworks", desc: "React.js, FastAPI, LangChain" },
                   { title: "Databases", desc: "MongoDB, MySQL" },
                   { title: "Developer Tools", desc: "Git, GitHub, REST APIs" },
-                  { title: "Core Concepts", desc: "Data Structures & Algorithms, API Design, Authentication (JWT/OAuth)" },
-                  { title: "Certifications / Training", desc: "• Full Stack Development (NxtWave)\n• JavaScript, HTML, CSS (NxtWave)\n• MySQL Bootcamp (Udemy)" }].
+                  { title: "Core Concepts", desc: "Data Structures & Algorithms, API Design, Authentication (JWT/OAuth)" }].
                   map((stack, i) =>
                     <div key={i} className="p-10 rounded-[2.5rem] bg-zinc-900/10 hover:bg-zinc-900/20 transition-all space-y-4 group">
                       <div className="flex items-center gap-4">
@@ -582,6 +556,85 @@ export default function PortfolioPage() {
                       <p className="text-zinc-500 leading-relaxed font-medium whitespace-pre-line">{stack.desc}</p>
                     </div>
                   )}
+              </div>
+
+              <div className="w-full">
+                <div className="p-10 rounded-[2.5rem] bg-zinc-900/10 hover:bg-zinc-900/20 transition-all space-y-4 group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 group-hover:text-white transition-colors">
+                      <Code2 className="w-6 h-6" />
+                    </div>
+                    <h4 className="text-xl font-bold text-white tracking-tight">Certifications</h4>
+                  </div>
+                  <p className="text-zinc-500 leading-relaxed font-medium whitespace-pre-line">• Full Stack Development (NxtWave)
+• JavaScript, HTML, CSS (NxtWave)
+• MySQL Bootcamp (Udemy)
+• Introduction to Data Engineering – Coursera
+• AWS Cloud Practitioner (In Progress)
+• Cloud Native & Containerization Certification</p>
+                </div>
+              </div>
+            </section>
+          </SectionReveal>
+
+          {/* Education & Training Section */}
+          <SectionReveal>
+            <section id="education" className="space-y-10">
+              <div className="space-y-4">
+                <h2 className="text-4xl font-bold text-white tracking-tighter">Education & Training</h2>
+                <p className="text-zinc-500 max-w-xl text-lg">
+                  Formal education and professional training from industry-leading platforms.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    institution: "St Ann's College of Engineering & Technology",
+                    degree: "B.Tech in Computer Science & Engineering (IoT)",
+                    period: "2022 – 2026",
+                    details: [
+                      "CGPA: 7.64/10",
+                      "I have Completed my B.tech in Computer Sceince specializing in Internet of Things",
+                      "Curriculum includes Data Structures, Algorithms, Web Development, IoT, and Cloud Computing"
+                    ]
+                  },
+                  {
+                    institution: "NxtWave Disruptive Technologies",
+                    degree: "Python Full Stack Development",
+                    period: "2022 – 2024",
+                    details: [
+                      "Intensive training in React.js, Node.js, Express.js, and MongoDB (MERN stack)",
+                      "Completed hands-on projects: Real-Time Collaborative Project Management Platform, AI-Powered Chatbot, and E-commerce Website",
+                      "Learned JavaScript ES6+, REST APIs, Authentication (JWT/OAuth), and Database Design",
+                      "Achieved 87% completion score with distinction in practical assessments"
+                    ]
+                  }
+                ].map((edu, i) =>
+                  <div key={i} className="p-8 lg:p-12 rounded-[2.5rem] bg-zinc-900/10 hover:bg-zinc-900/20 transition-all group relative overflow-hidden">
+                    <div className="relative z-10 flex flex-col md:flex-row justify-between gap-6">
+                      <div className="space-y-6">
+                        <div className="space-y-2">
+                          <h3 className="text-2xl font-bold text-white tracking-tight">{edu.degree}</h3>
+                          <p className="text-zinc-400 font-medium">{edu.institution}</p>
+                        </div>
+                        <ul className="space-y-3">
+                          {edu.details.map((item, j) =>
+                            <li key={j} className="text-zinc-500 text-sm leading-relaxed flex gap-3">
+                              <div className="w-1 h-1 rounded-full bg-zinc-800 mt-2 shrink-0" />
+                              {item}
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                      <div className="shrink-0">
+                        <span className="text-[10px] font-black text-zinc-600 bg-black/50 px-4 py-2 rounded-full border border-zinc-800 uppercase tracking-widest">
+                          {edu.period}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </section>
           </SectionReveal>

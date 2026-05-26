@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import TechBadge from "@/components/TechBadge";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import VideoEmbed from "@/components/VideoEmbed";
-import ProjectGallery from "@/components/ProjectGallery";
 import BrowserWindow from "@/components/BrowserWindow";
 
 export async function generateStaticParams() {
@@ -173,7 +172,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
                 {/* Screenshot Gallery */}
                 {project.gallery && project.gallery.length > 0 && (
-                    <ProjectGallery images={project.gallery} title={project.title} />
+                    <section className="space-y-6">
+                        <h2 className="text-2xl font-bold text-white tracking-tight">Project Gallery</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {project.gallery.map((image, index) => (
+                                <div
+                                    key={index}
+                                    className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-colors group"
+                                >
+                                    <Image
+                                        src={image}
+                                        alt={`${project.title} screenshot ${index + 1}`}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
                 )}
 
                 {/* Features */}
